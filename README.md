@@ -10,6 +10,11 @@ Revision/Addition Description and Link:
 * Modified ggplot/forcats example to demonstrate sorting, other category
 * [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/ggplot_forcats.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd)https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd
 
+# Rivera R
+Iniital Description and Link:
+* Demonstrates how to use the emo package with dplyr and ggplot
+* [https://github.com/riverar9/SPRING2024TIDYVERSE/blob/main/Rivera_Tidyverse_ggplot_emo.rmd](https://github.com/riverar9/SPRING2024TIDYVERSE/blob/main/Rivera_Tidyverse_ggplot_emo.rmd)
+
 # AJ S
 
 Initial Description and Link:
