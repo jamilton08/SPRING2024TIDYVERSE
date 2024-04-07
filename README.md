@@ -1,38 +1,28 @@
 # SPRING2024TIDYVERSE
 
 # Sample
-Initial Description and Link: 
-* Demonstrates how to flip ggplot axes
-* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/ggplot_forcats.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd)
 
+Initial Description and Link: \* Demonstrates how to flip ggplot axes \* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/ggplot_forcats.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd)
 
-Revision/Addition Description and Link:
-* Modified ggplot/forcats example to demonstrate sorting, other category
-* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/ggplot_forcats.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd)https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd
+Revision/Addition Description and Link: \* Modified ggplot/forcats example to demonstrate sorting, other category \* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/ggplot_forcats.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd)<https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd>
 
 # AJ S
 
-Initial Description and Link:
-* Demonstrates using the `purrr` package to `map` custom functions to data
-* [tidyverse CREATE: using the `purrr` package with data](https://github.com/annejscott/DATA607/raw/main/assignments/tidyverse/straumanscott-tidyverse-purr.rmd)
+Initial Description and Link: \* Demonstrates using the `purrr` package to `map` custom functions to data \* [tidyverse CREATE: using the `purrr` package with data](https://github.com/annejscott/DATA607/raw/main/assignments/tidyverse/straumanscott-tidyverse-purr.rmd)
 
 Revision/Addition Description and Link:
-
 
 # Alexander S
 
-Initial Description and Link:
-Alex's initial work.
+Initial Description and Link: Demonstrates how to use the `across()` function from the `dplyr` package.
+
+<https://github.com/alexandersimon1/SPRING2024TIDYVERSE/blob/main/Alexander_Simon_dplyr_across.Rmd>
 
 Revision/Addition Description and Link:
-
 
 # Angel G
 
-Initial Description and Link: functions in dplyer and ggplot in the idyverse package
-https://github.com/Angelogallardo05/DATA607-tidyverse/blob/main/TIDYVERSE%20Assignment_NYC_House.Rmd
-Revision/Addition Description and Link:
-
+Initial Description and Link: functions in dplyer and ggplot in the idyverse package <https://github.com/Angelogallardo05/DATA607-tidyverse/blob/main/TIDYVERSE%20Assignment_NYC_House.Rmd> Revision/Addition Description and Link:
 
 # Anthony C
 
@@ -40,33 +30,23 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Brandon C
 
-Initial Description and Link:
-* Demonstrates how to use multple functions from dplyr and ggplot2 to showcase the reults
-* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd)
+Initial Description and Link: \* Demonstrates how to use multple functions from dplyr and ggplot2 to showcase the reults \* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd)
 
 Revision/Addition Description and Link:
-
 
 # Dhanya A
 
-Initial Description and Link:
-The Create Tidy verse Assignment using purr,dplyr, stringr, forcats within the tidyverse package.
+Initial Description and Link: The Create Tidy verse Assignment using purr,dplyr, stringr, forcats within the tidyverse package.
 
-Revision/Addition Description and Link:
-https://raw.githubusercontent.com/datanerddhanya/SPRING2024TIDYVERSE/main/Dhanya_Nair_DATA607Assignment8.Rmd
-
+Revision/Addition Description and Link: <https://raw.githubusercontent.com/datanerddhanya/SPRING2024TIDYVERSE/main/Dhanya_Nair_DATA607Assignment8.Rmd>
 
 # Evelyn B
 
-Initial Description and Link: 
-dplyr vignette with tree data from Kaggle
-https://raw.githubusercontent.com/evelynbartley/Data-607/main/Tidyverse%20CREATE%20with%20dplyr.Rmd
+Initial Description and Link: dplyr vignette with tree data from Kaggle <https://raw.githubusercontent.com/evelynbartley/Data-607/main/Tidyverse%20CREATE%20with%20dplyr.Rmd>
 
 Revision/Addition Description and Link:
-
 
 # Frank N
 
@@ -74,13 +54,11 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Guillermo S
 
 Initial Description and Link:
 
 Revision/Addition Description and Link:
-
 
 # James N
 
@@ -88,21 +66,17 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Jonathan C
 
 Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Koohyar P
 
-Initial Description and Link:
-Koohyar Has upated the code and added a line to creat a Koch snowflake. Kock snowflake is a fractal and it is an interesting concenpt. Code is copied and not written by KP.
+Initial Description and Link: Koohyar Has upated the code and added a line to creat a Koch snowflake. Kock snowflake is a fractal and it is an interesting concenpt. Code is copied and not written by KP.
 
 Revision/Addition Description and Link:
-
 
 # Lu B
 
@@ -110,15 +84,11 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Lucas W
 
-Initial Description and Link:
-Demonstrate the functionalities of dplyr, tidyr, ggplot2, and readr using the soccer SPI dataset
-https://github.com/lucasweyrich958/SPRING2024TIDYVERSE/blob/main/Tidyverse_Create_LW.Rmd
+Initial Description and Link: Demonstrate the functionalities of dplyr, tidyr, ggplot2, and readr using the soccer SPI dataset <https://github.com/lucasweyrich958/SPRING2024TIDYVERSE/blob/main/Tidyverse_Create_LW.Rmd>
 
 Revision/Addition Description and Link:
-
 
 # Markella G
 
@@ -126,15 +96,11 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Nikoleta Nick E
 
-Initial Description and Link:
-* Demonstrates the use of readr,dplyr,ggplot2 and their functions to analyse the dataset.
-
+Initial Description and Link: \* Demonstrates the use of readr,dplyr,ggplot2 and their functions to analyse the dataset.
 
 Revision/Addition Description and Link:
-
 
 # Peter T
 
@@ -142,13 +108,11 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Richie R
 
 Initial Description and Link:
 
 Revision/Addition Description and Link:
-
 
 # Shourov N
 
@@ -156,23 +120,19 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Victor T
 
 Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-
 # Zig D
 
-Initial Description and Link:
-Demonstrates the use of TidyVerse package.
+Initial Description and Link: Demonstrates the use of TidyVerse package.
 
-https://github.com/Zcash95/SPRING2024TIDYVERSE
+<https://github.com/Zcash95/SPRING2024TIDYVERSE>
 
 Revision/Addition Description and Link:
-
 
 # Zixian L
 
@@ -180,10 +140,6 @@ Initial Description and Link:
 
 Demonstrates the use of dplyr and ggplot2 from the tidyverse package.
 
-https://github.com/ZIXIANNOW/SPRING2024TIDYVERSE/blob/main/Zixian_Liang_Tidyverse.Rmd
+<https://github.com/ZIXIANNOW/SPRING2024TIDYVERSE/blob/main/Zixian_Liang_Tidyverse.Rmd>
 
 Revision/Addition Description and Link:
-
-
-
-
