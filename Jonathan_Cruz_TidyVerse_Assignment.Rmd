@@ -1,0 +1,96 @@
+---
+title: "TIdyverse Assignment"
+author: "Jonathan Cruz"
+date: "2024-04-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Task
+
+I would like to assess the text-to-sentence ratio in each text for a Large Language Model (LLM).
+Following that, I aim to analyze the overall sentiment expressed within each text.
+
+```{r include=FALSE}
+library(tidyverse)
+library(knitr)
+library(tidytext)
+```
+
+# Data 
+
+
+## Source 
+https://www.kaggle.com/datasets/carlmcbrideellis/llm-7-prompt-training-dataset
+
+## Download Link 
+https://www.kaggle.com/datasets/carlmcbrideellis/llm-7-prompt-training-dataset/download?datasetVersionNumber=4
+
+## Files 
+train_essays_7_prompts.csv
+train_essays_7_prompts_v22.csv
+
+
+```{r load}
+
+dt1  <- read_csv("train_essays_7_prompts.csv")
+dt2  <- read_csv("train_essays_7_prompts_v2.csv")
+```
+
+
+
+You can consolidate rows from multiple dataframes into one dataframe using the [dplyr]{.underline} package in R. This allows you to merge dataframes based on their similarities.
+
+```{r bind_rows}
+dt <- bind_rows(dt1, dt2)
+```
+
+
+With the [stringr]{.underline} package in R, you can analyze text in each row of a dataframe and match them with expressions. This enables you to perform various text processing tasks, such as pattern matching and extracting substrings.
+
+
+```{r}
+dt <- dt |>
+          mutate(total_words = str_count(text,'\\w+ ')+1) |>
+          mutate(total_sentences = str_count(text, "\\.|\\?" )) |>
+          mutate(ratio = total_words / total_sentences) |>
+          mutate(id = row_number())
+          
+```
+
+
+I will utilize [tidytext]{.underline}, which is built using tidyverse tools, to extract sentiment values using [dplyr]{.underline} in conjunction with [tidytext]{.underline}.
+
+
+```{r dyplyr_stringr, echo=FALSE}
+sentiments <- get_sentiments("afinn")
+sent_dt <- dt |>
+           select(text, id) |>
+           mutate( text = str_remove_all(text, "\\.|\\?|\"|'|,|:")) |>
+           unnest_tokens(word, text) |>
+           inner_join(sentiments) |> 
+           group_by(id) |>
+           summarise(net = sum(value))
+```
+more [dplyr]{.underline} functions
+
+```{r inner_join}
+text_sent <- inner_join(dt, sent_dt)
+```
+
+
+
+We can enhance our data interpretation by employing [ggplot]{.underline} to create insightful visualizations.
+
+```{r ggplot}
+ggplot(text_sent, aes(x=total_words)) + 
+    geom_histogram(aes(y=after_stat(density)),     
+                   binwidth=.5,
+                   colour="black", fill="white") +
+    geom_density(alpha=.2, fill="#FF6666")
+```
