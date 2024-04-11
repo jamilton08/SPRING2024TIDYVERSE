@@ -36,7 +36,8 @@ Revision/Addition Description and Link:
 
 # Anthony C
 
-Initial Description and Link:
+* Demonstrate the use of the unite, separate, and pivot_wider functions of the Tidyr package in Tidyverse.
+* https://github.com/Aconrard/SPRING2024TIDYVERSE/blob/main/Tidyverse_Conrardy.Rmd
 
 Revision/Addition Description and Link:
 
