@@ -40,7 +40,8 @@ Revision/Addition Description and Link:
 
 Initial Description and Link: \* Demonstrates how to use multple functions from dplyr and ggplot2 to showcase the reults \* [https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.Rmd)
 
-Revision/Addition Description and Link:
+Revision/Addition Description and Link: \*Extended Biyag Dukuray's vignette on ggplot2, specifically showing off breaking down bar graphs will fill into different groups and many of the different properties of scatterplots available in ggplot2.\*
+<https://github.com/btc2628/SPRING2024TIDYVERSE/blob/main/DATA%20607%20TidyVerse%20Create.Rmd>
 
 # Dhanya A
 
