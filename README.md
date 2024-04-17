@@ -38,7 +38,7 @@ Revision/Addition Description and Link:
 
 # Brandon C
 
-Initial Description and Link: \* Demonstrates how to use multple functions from dplyr and ggplot2 to showcase the reults \* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd)
+Initial Description and Link: \* Demonstrates how to use multple functions from dplyr and ggplot2 to showcase the reults \* [https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/Cunningham_Tidyverse.Rmd)
 
 Revision/Addition Description and Link:
 
