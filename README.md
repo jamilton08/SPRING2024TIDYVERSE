@@ -1,5 +1,7 @@
 # SPRING2024TIDYVERSE
 
+# Victor Torres
+Initial Description and Link: Work with Club Soccer Predictions from "fivethirtyeight.com" page, to demostrate how to tidy datasets with dplyr, tidyr, ggplot2, and Kable 
 # Sample
 
 Initial Description and Link: \* Demonstrates how to flip ggplot axes \* [https://github.com/acatlin/FALL2021TIDYVERSE/blob/main/ggplot_forcats.rmd](https://github.com/acatlin/SPRING2024TIDYVERSE/blob/main/ggplot_forcats.rmd)
