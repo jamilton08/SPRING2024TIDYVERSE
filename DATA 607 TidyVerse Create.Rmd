@@ -1,6 +1,6 @@
 ---
 title: "DATA 607 TidyVerse Create"
-author: "Biyag Dukuray"
+author: "Biyag Dukuray, Brandon Cunningham"
 output: html_document
 date: "2024-04-03"
 ---
@@ -83,5 +83,32 @@ theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 print(correlation_plot)
 ```
+
+**We can also show the distribution of number of claims and break down each bar in the graph by the marital status which made that number of claims. Through this we can see if there are patterns in any specific number of claims made by certain martial status groups, however there does not appear to be much of a relationship between the marital status and any specific number of claims**
+```{r}
+ggplot(insurance_data, aes(x=`Claim History`, fill=`Marital Status`)) + 
+   geom_bar() +
+  labs(x='Claim History')
+```
+
+**Another thing we might want to look at is if a person's coverage amount is correlated with their claim history. to do this we have a few options, we could create a bar graph with a persons claim history on the x-axis and average coverage on the y axis, but as there have already been quite a few bar graph examples we will use another option. Another way of showing this would be to use a scatter plot with the x-axis representing the number of claims they've made, and y axis representing their coverage amount.**
+```{r}
+ggplot(insurance_data, aes(x=`Claim History`, y=`Coverage Amount`)) + 
+   geom_point() +
+  labs(x='Claim History', y='Coverage Amount')
+```
+**Here we have a problem, there are too many data points and too few categories that what we end up with just looks like a giant straight line in each category. To fix this there are a couple options, the first is we can add a transparency to each point so that where there are more data points in one spot it will appear more visible**
+```{r}
+ggplot(insurance_data, aes(x=`Claim History`, y=`Coverage Amount`)) + 
+   geom_point(alpha=0.01) +
+  labs(x='Claim History', y='Coverage Amount')
+```
+**Adding transparency helps, but it still has a problem of being a perfectly straight thin line which makes it hard to get a graph of the number of points in each coverage level. What we can do to help alleviate this is use geom_jitter instead of geom_point to make it so that the points are distributed around their claim history amount instead of perfectly on it to turn the straight line into more of a bar.**
+```{r}
+ggplot(insurance_data, aes(x=`Claim History`, y=`Coverage Amount`)) + 
+   geom_jitter(alpha=.1) +
+  labs(x='Claim History', y='Coverage Amount')
+```
+**After adding these visual adjustments, we can much more clearly see the different densities of points in each claim group and we can even see stripes of points at popular coverage amounts.**
 
 **Conclusion: GGplot2 gave us the ability to display this analysis of the data and the correlation between a persons relationship status and their insurance claims history. This confirmed my theory that people who are in stable situations such as being married or single will have less insurance claims in comparison to people who may be in stressful situations such as being separated, widowed or divorced. Though this is the case, this should not be the only factor analyzed by an insurance company to gauge the risk of a consumer.**
