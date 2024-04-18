@@ -131,12 +131,6 @@ Initial Description and Link:
 
 Revision/Addition Description and Link:
 
-# Victor T
-
-Initial Description and Link:
-
-Revision/Addition Description and Link:
-
 # Zig D
 
 Initial Description and Link: Demonstrates the use of TidyVerse package.
