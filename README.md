@@ -150,3 +150,7 @@ Demonstrates the use of dplyr and ggplot2 from the tidyverse package.
 <https://github.com/ZIXIANNOW/SPRING2024TIDYVERSE/blob/main/Zixian_Liang_Tidyverse.Rmd>
 
 Revision/Addition Description and Link:
+
+Extended Anthony Conrardy's vignette on ggplot2 in order to illustrate the data in a clear and intuitive manner.
+
+https://github.com/ZIXIANNOW/SPRING2024TIDYVERSE/blob/main/Extension%20from%20ZIXIAN%20LIANG%20for%20Tidyverse_Conrardy.Rmd
