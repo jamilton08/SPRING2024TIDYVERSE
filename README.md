@@ -111,7 +111,7 @@ Revision/Addition Description and Link:
 
 Initial Description and Link: \* Demonstrates the use of readr,dplyr,ggplot2 and their functions to analyse the dataset.
 
-Revision/Addition Description and Link:
+Revision/Addition Description and Link: Extended Anthony Conrady's vignette by adding `ggplot2`  and generated 3 different plots using ggplots functions. https://github.com/NikoletaEm/SPRING2024TIDYVERSE/blob/main/Tidyverse_Conrardy.Rmd
 
 # Peter T
 

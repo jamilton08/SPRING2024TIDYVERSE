@@ -80,3 +80,41 @@ kable(ev_data_wider, format = "html", caption = "EV Model Year by County") |> ka
 ### Conclusion
 
 While this a relatively simple dataset to work with, it gives a person the opportunity to experiment with the various functions of the the Tidyr package within the Tidyverse.  Other functions available can allow the data frame to be nested using various dplyr and purr functions. 
+
+### TIDYVERSE EXTEND : Nikoleta N Emanouilidi
+
+### I'll extend Anthony's vignette by adding some plots using ggplot
+
+```{r}
+library(ggplot2)
+```
+### I will make a scatterplot to see if there's a trend in electric range over time. I am using geom_point() to make that.
+```{r}
+ggplot(ev_data_select, aes(x = Model.Year, y = Electric.Range)) +
+  geom_point() +
+  labs(title = "Electric Range vs. Model Year", x = "Model Year", y = "Electric Range (miles)") +
+  theme_minimal()
+```
+## As we can see on the graph as we approach 2025 the electric range in miles is decreasing.
+
+### The next plot we are making is bar chart and we're using geom_bar(). More specifically we are creating a bar chart showing the total count of car purchases for each county in in Washington state. Because we have 39 counties and that will result in generating a messy looking bar chart, we'll have to use coord_flip. Coord_flip will flip the entire plot, making the x-axis horizontal and the y-axis vertical.
+```{r}
+county_totals <- aggregate(count ~ County, data = ev_data_count, FUN = sum)
+
+ggplot(county_totals, aes(x = County, y = count, fill = County)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Car Purchases by County", x = "County", y = "Total Car Purchases") +
+  theme_minimal() + 
+  coord_flip()
+```
+
+### Lastly, we'll use  geom_tile() to  generate a heatmap visualization to explore the distribution of car purchases across counties and years.Each cell of the heatmap represents a  combination of these  categories and the color of the cell indicates the value associated with that combination. Darker colors represent higher values, while lighter colors represent lower values. 
+```{r}
+ggplot(ev_data_count, aes(x = Model.Year, y = factor(County), fill = count)) +
+  geom_tile() +
+  scale_fill_gradient(low = "lightpink", high = "darkred") +
+  labs(title = "Heatmap of Car Purchases by County and Year", x = "Year", y = "County", fill = "Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
