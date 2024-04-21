@@ -1,7 +1,9 @@
 ---
 title: "TIDYVERSE Assignment"
 author: "angel"
+extended author: "Dhanya nair"
 date: "2024-04-07"
+Extended date: "2024-04-21"
 output: html_document
 ---
 
@@ -104,4 +106,123 @@ ggplot(filtered_df, aes(x = BATH, y = PRICE)) +
   scale_y_continuous(labels = scales::comma_format(scale = 1e-3, suffix = "K")) +
   theme_minimal()
 ```
+
+
+## Extension of the code by Dhanya Nair
+## 1. Tidying the data
+### In the BROKERTITLE variable, there are 35 records which  has " No Broker" and few records which are " Built by Toll Brothers".
+
+### I want to keep only brokers name in this column.
+
+### Using separate(), drop_na() and filter()
+```{r}
+# to remove the text "Brokered by" from the BROKERTITLE variable
+broker_df <- df |>
+separate(BROKERTITLE, into = c("prefix", "BROKER"), sep = "\\sby\\s", convert = TRUE)
+
+# to remove NA , this will filter out the No Broker records.
+# Remove " Built by Toll brothers" as these records will have "Built" in the prefix column
+# hence fitlering by "Brokered"
+broker_df <- broker_df |>
+  drop_na(BROKER) |>
+  filter(prefix == "Brokered")
+
+
+
+```
+
+
+2. using round() function
+
+```{r}
+
+broker_df$BATH <- round(broker_df$BATH,0)
+broker_df$PROPERTYSQFT <- round(broker_df$PROPERTYSQFT,0)
+
+
+```
+
+
+## 3. which brokerage sold the most homes in New York ?
+### using table() , sort() and head()
+```{r}
+
+# Use table() function to summarize and count the values
+broker_stat <- table(broker_df$BROKER)
+
+# Sort the summary table by counts
+broker_stat <- sort(broker_stat, decreasing = TRUE)
+
+# Display the top 10 values
+top_10 <- head(broker_stat, 10)
+
+# Print the top 10 values
+print(top_10)
+
+```
+
+## 4. Visualize the data for PRICE by HOUSE TYPE for over 6000 SQFT
+
+### using box_plot()  and facet_wrap()
+```{r}
+
+broker_df_high<- broker_df |>
+  filter(PROPERTYSQFT > 6000)
+  
+broker_df_high %>%
+  drop_na(PRICE)%>%
+   group_by(TYPE) %>%
+  ggplot(aes(x = PRICE, group = TYPE, color = TYPE)) +
+  geom_boxplot(outlier.shape = NA) +
+    labs(title  = "HOUSE SOLD PRICE (USD) with over 6000 SQFT") +
+    theme(axis.title = element_text(face = "bold"), 
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          strip.text.x = element_text(size = 8)) +  
+  facet_wrap(~ TYPE) +
+  
+    scale_x_continuous(breaks = c(0, 5e5, 1e6, 1e7), 
+                     limits = c(4e5, 1e8),
+                     labels = scales::scientific)  +
+  theme_minimal()
+
+
+```
+
+
+
+
+
+## Extra:
+
+### 4. display the houses sold in Queens, NY in a map
+```{r}
+library(maps)
+library(ggmap)
+library(tigris) # for accessing geographic data
+
+
+# Get boundary data for Queens County, New York
+queens_county <- tigris::counties(state = "NY", cb = TRUE) %>%
+  filter(NAME == "Queens")
+
+# Plot the map of Queens County, New York, with houses
+ggplot() +
+  geom_sf(data = queens_county, fill = "white", color = "black") +
+  geom_point(data = filtered_df,
+             aes(x = LONGITUDE, y = LATITUDE),
+             color = "red", size = 3) +
+  labs(x = "Longitude", y = "Latitude", title = "Map of Queens County, NY with Houses sold") +
+  theme_minimal()
+
+
+
+```
+
+## Conclusion:
+- I have extended Angel's assignment . 
+- I worked on tidying the data using Using separate(), drop_na() and filter(),round() . 
+- I created summaries using  table() , sort() and head() .
+- I visualized the data using box_plot()  and facet_wrap().
+- Additionally i displayed the data using a package not in tidyverse using maps.
 
