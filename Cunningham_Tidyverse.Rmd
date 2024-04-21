@@ -57,10 +57,69 @@ ggplot(fuel_narrowed, aes(x=year, y=combined_mpg_ft1, group=transmission, fill=t
   labs(x='Year', y='Combined MPG') 
 ```
 
+# Richie Extension
 
+From the graph above, it looks like there isn't a great difference between Automatic/Auto and Manual in the modern day. There are even observations where auto/automatic transmissions are outperforming manual ones!
 
+I wonder if there are other categorical variables where we would see a different trend. Using the same method to create a similar graph with vehicle type:
 
+```{r richie}
+str(fuel_narrowed)
 
+ggplot(fuel_narrowed, aes(x=year, y=combined_mpg_ft1, group=class, fill=class)) + 
+   geom_bar(stat="summary", fun="mean", show.legend = FALSE) +
+  facet_wrap(~class, scales = 'free_x') + 
+  labs(x='Year', y='Combined MPG') 
+```
+Because there are so many categories for `class` it's really difficult to compare across classes. But we can see that the broad trend is that newer cars generally became more efficient. With few exceptions, but notably Vans in general have become noticeably less efficient.
 
+Plotting this another way:
 
+```{r richie}
+avg_mpg_hist_class <- fuel_narrowed |>
+  group_by(
+    year,
+    class
+  ) |>
+  summarise(
+    avg_mpg = mean(combined_mpg_ft1)
+  )
 
+ggplot(
+  avg_mpg_hist_class,
+  aes(
+    x = year,
+    y = avg_mpg,
+    color = class
+  )
+) +
+  geom_line() +
+  labs(
+    title = "Annual average MPG by class and year",
+    x = "Year",
+    y = "Average MPG"
+  ) +
+  theme_minimal()
+```
+
+This graph is crazily noisy, and it seems like it's due to the lack of entries for some vehicle types across time.
+
+Lastly, let's pull out which class is the best for the most recent year of data:
+
+```{r richie}
+max_year <- max(avg_mpg_hist_class$year)
+
+latest_year <- avg_mpg_hist_class |>
+  filter(
+    year == max_year
+  ) |>
+  arrange(
+    desc(
+      avg_mpg
+    )
+  )
+
+latest_year
+```
+
+Pretty expectedly, this would be the Small Station wagons and Midsize cars with the gap between the two being fairly large.
