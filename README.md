@@ -46,8 +46,13 @@ Revision/Addition Description and Link: \*Extended Biyag Dukuray's vignette on g
 # Dhanya A
 
 Initial Description and Link: The Create Tidy verse Assignment using purr,dplyr, stringr, forcats within the tidyverse package.
+<https://raw.githubusercontent.com/datanerddhanya/SPRING2024TIDYVERSE/main/Dhanya_Nair_DATA607Assignment8.Rmd>
 
-Revision/Addition Description and Link: <https://raw.githubusercontent.com/datanerddhanya/SPRING2024TIDYVERSE/main/Dhanya_Nair_DATA607Assignment8.Rmd>
+Revision/Addition Description and Link: 
+Extended Angel's TIDYVERSE Assignment_NYC_House.Rmd file to tidy the data, add sumamries and visualize it
+<https://raw.githubusercontent.com/datanerddhanya/SPRING2024TIDYVERSE/main/TIDYVERSE%20Assignment_NYC_House.Rmd>
+
+
 
 # Evelyn B
 
