@@ -1,0 +1,181 @@
+---
+title: 'tidyverse: using emojifont to improve your visualizations'
+author: "rivera"
+date: "2024-03-23"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Here we will be demonstrating some text analytics. A relatively new medium of communication has been conversing using emojis. These little images can explicitly put emotional intent and communicate things which may be much more difficult to do in exclusively text. Here we will look at emojis and play around with how we can extract meaning from text with them.
+
+In this vignette, I'll be reviewing the most used emojis and plotting their frequency. To do so, we'll need to start with the "emo" library. THis library was written by [hadley who has his package available on github](https://github.com/hadley/emo).
+
+```{r}
+# Import the emoji package
+devtools::install_github("hadley/emo")
+library("emo")
+
+# Import ggplot
+library("ggplot2")
+
+# import dplyr for data manipulation
+library("dplyr")
+
+# import tidytext for sentiment analysis
+library("tidytext")
+
+# import wordcloud2 for sentiment visual
+library(wordcloud2)
+
+# import knitr to display display aesthetically pleasing tables
+library(knitr)
+
+# import to costumly design tables
+library(kableExtra)
+```
+
+No we'll start by reading a file from Kaggle which contains tweets:
+
+```{r read the tweets csv}
+# Establish the url to the dataset
+tweets_url <- "https://raw.githubusercontent.com/riverar9/cuny-msds/main/data607/assignments/tidyverse_create/emoji_tweets.csv"
+
+# Read the dataset
+tweets <- read.csv(tweets_url)
+
+# Display the top 5 records
+head(tweets)
+```
+
+Now that we have our data, we will use the `ji_count()` function from the emo library to get counts of tweet usage:
+
+```{r get tweet counts}
+# Use the ji_count() function to count the number of emojis in each tweet
+tweets$emoji_count <- ji_count(tweets$tweet)
+
+# Count the number of tweets with at least one emoji used
+total_emoji_count <- tweets |>
+  filter(emoji_count > 0) |>
+  nrow()
+
+# Count the total number of tweets
+total_tweet_count <- nrow(tweets)
+```
+
+From here we can see that there are `r total_emoji_count` tweets with emojis emojis in the dataset. So of all `r total_tweet_count` tweets there are only `r total_emoji_count` tweets with at least one emoji.
+
+Let's use the dataset to find which emojis are used the most often.
+
+```{r get total emoji usage}
+# Create a function that extracts emojis from text using regex.
+extract_only_emojis <- function(text) {
+  # The regex \p{So} instructions regex to extract symbols
+  # The p symbolized a unicode item
+  t_list <- regmatches(
+    text,
+    gregexpr(
+      "\\p{So}",
+      text,
+      perl = TRUE
+    )
+  )
+
+  # Flatten our list
+  return(unlist(t_list))
+}
+
+# Count the occurrence of each emoji
+emoji_counts_df <- as.data.frame(
+  table(
+    extract_only_emojis(
+      tweets$tweet
+    )
+  )
+)
+names(emoji_counts_df) <- c("emoji", "count")
+
+emoji_counts_df |>
+  arrange(
+    desc(count)
+  ) |>
+  head(10)
+```
+
+Fun that the most used emojis were the letter emojis. So, even when using symbols it's preferred to use letters! I would have not guessed that `G` would have been the mosst used emoji, but I would have expected that the clapping one was used often!
+
+Lastly, let's create a box plot that shows each emoji and their usage:
+
+```{r plot the emoji frequency}
+display_data <- emoji_counts_df |>
+  top_n(
+    20,
+    count
+  )
+
+display_data |>
+  ggplot(
+    aes(
+      count,
+      reorder(
+        emoji,
+        count
+      )
+    )
+  ) +
+  geom_bar(
+    stat = "identity"
+  ) + 
+  labs(
+    x = "Frequency",
+    y = "Emoji"
+  )
+```
+```{r table styling}
+k_style <- function(df){
+  return (kbl(df[1:5,]) |>
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed")))
+}
+```
+
+what sentimetns are these emojis acomponied with 
+```{r get tweets simple identifiers}
+tweets <- tweets |>
+          mutate(id = row_number())
+
+ 
+k_style(tweets)
+```
+
+
+```{r do a sentiments analysis in each tweet}
+tweets <- tweets |>
+              unnest_tokens(word, tweet) |>
+              inner_join(get_sentiments("afinn")) |>
+              group_by(id) |>
+              summarise(sentiment = sum(value)) |>
+              inner_join(tweets)
+k_style(tweets)
+
+```
+
+```{r pair each tweet is sentiments with their emojis}
+sent_emoj <- tweets |>
+             mutate(emoj = regmatches(tweet,gregexpr("\\p{So}",tweet,perl = TRUE))) |>
+             dplyr::select(id, sentiment, emoj) |>
+             unnest(cols = emoj)
+k_style(sent_emoj)
+```
+
+```{r determine general sentiment of each emoji when being used in a tweet}
+se <- sent_emoj |>
+      group_by(emoj) |>
+      summarise(sentiments = sum(sentiment))
+k_style(se)
+
+```
+
+```{r visual}
+se$sentiments <- as.numeric(se$sentiments)
+se |> rename(freq = sentiments, word = emoj) |> wordcloud2( color = "random-light", backgroundColor = "floralwhite")
+```
