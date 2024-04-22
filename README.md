@@ -84,9 +84,14 @@ Revision/Addition Description and Link:
 
 # Jonathan C
 
-Initial Description and Link:
+Initial Description and Link: 
+Analyzing training essay that were used for training some LLM.
+<https://github.com/jamilton08/SPRING2024TIDYVERSE/blob/main/Jonathan_Cruz_TidyVerse_Assignment.Rmd>
 
 Revision/Addition Description and Link:
+Extended Richie Rivera is assignment, performed sentiment analysis on each tweet and correlated them to each emoji then
+visualized their significane with word clouds.
+<https://github.com/jamilton08/SPRING2024TIDYVERSE/blob/main/Rivera_Tidyverse_ggplot_emo_Jonathan_edit.rmd>
 
 # Koohyar P
 
